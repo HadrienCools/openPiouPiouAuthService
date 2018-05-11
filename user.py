@@ -10,7 +10,10 @@ app = Flask(__name__)
 CORS(app)
 
 app.config['SECRET_KEY']='secret'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/coolshadrien/Documents/scalableArchitecture/user.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/lecoo/Documents/scalableArchitecture/user.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/coolshadrien/Documents/scalableArchitecture/user.db'app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/coolshadrien/Documents/scalableArchitecture/user.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/lecoo/Documents/scalableArchitecture/user.db'app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/coolshadrien/Documents/scalableArchitecture/user.db'
+#windows Users\lecoo\Documents\scalableArchitecture\frontend2
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://///Users/coolshadrien/Documents/scalableArchitecture/todo.db'
 
 db = SQLAlchemy(app)
@@ -146,7 +149,7 @@ def login():
 
     if check_password_hash(user.password, auth.password):
         #on va generer le token
-        token = jwt.encode({'public_id' : user.public_id,'exp': datetime.datetime.utcnow()+datetime.timedelta(minutes=30)},app.config['SECRET_KEY'])
+        token = jwt.encode({'public_id' : user.public_id, 'user':13069, 'exp': datetime.datetime.utcnow()+datetime.timedelta(minutes=30)},app.config['SECRET_KEY'])
 
         return jsonify({'token': token.decode('UTF-8')})
     
